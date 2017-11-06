@@ -126,3 +126,8 @@ print(res)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## TODOs
+
+* Log improvements
+* Test other unit tests from SpiffWorkflow [Source](https://github.com/knipknap/SpiffWorkflow/tree/master/tests/SpiffWorkflow/bpmn)

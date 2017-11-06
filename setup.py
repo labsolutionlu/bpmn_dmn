@@ -1,8 +1,10 @@
 from distutils.core import setup
+from setuptools import setup, find_packages
+
 setup(
   name              = 'bpmn_dmn',
-  packages          = ['bpmn_dmn'],
-  version           = '0.1',
+  packages          = find_packages(),
+  version           = '0.1.2',
   description       = 'A library to execute BPMN Workflows and DMN Decision Tables',
   author            = 'Denny Weinberg',
   author_email      = 'denny.weinberg@labsolution.lu',
