@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
   name              = 'bpmn_dmn',
   packages          = find_packages(),
-  version           = '0.1.2',
+  version           = '0.1.3',
   description       = 'A library to execute BPMN Workflows and DMN Decision Tables',
   author            = 'Denny Weinberg',
   author_email      = 'denny.weinberg@labsolution.lu',

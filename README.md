@@ -121,7 +121,14 @@ print(res)
 
 ## How to install
 
+From github
+
+```pip install git+https://github.com/labsolutionlu/bpmn_dmn.git```
+or
 ```pip install git+https://github.com/labsolutionlu/bpmn_dmn.git@0.1.2```
+
+From [pypi](https://pypi.python.org/pypi/bpmn-dmn)
+```pip install bpmn_dmn```
 
 ## Authors
 
