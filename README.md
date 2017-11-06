@@ -119,6 +119,10 @@ res = self.runner.decide('m', 30)
 print(res)
 ```
 
+## How to install
+
+```pip install git+https://github.com/labsolutionlu/bpmn_dmn.git@0.1.2```
+
 ## Authors
 
 * **Denny Weinberg** - *Initial work* - [DennyWeinberg](https://github.com/DennyWeinberg)
