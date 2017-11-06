@@ -9,7 +9,7 @@ setup(
   author            = 'Denny Weinberg',
   author_email      = 'denny.weinberg@labsolution.lu',
   url               = 'https://github.com/labsolutionlu/bpmn_dmn',
-  download_url      = 'https://github.com/labsolutionlu/bpmn_dmn/archive/0.1.zip',
+  download_url      = 'https://github.com/labsolutionlu/bpmn_dmn/archive/0.1.5.zip',
   keywords          = ['bpmn', 'dmn', 'camunda'],
   classifiers       = [],
   install_requires  = ['SpiffWorkflow'],
