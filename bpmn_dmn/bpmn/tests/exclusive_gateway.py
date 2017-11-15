@@ -37,7 +37,7 @@ class ExclusiveGatewayTestClass(unittest.TestCase):
     """
 
     def test_exclusive_gateway_if_else(self):
-        runner = BPMNXMLWorkflowRunner('exclusive_gateway_if_else.bpmn', debugLog='DEBUG', debug=True)
+        runner = BPMNXMLWorkflowRunner('exclusive_gateway_if_else.bpmn', debug=True)
         runner.start(x=1)
         res = runner.getEndEventName()
         self.assertEqual(res, 'EndEvent_0ofyivj')
@@ -48,13 +48,13 @@ class ExclusiveGatewayTestClass(unittest.TestCase):
                 self.status = status
                 self.printedfl = printedfl
 
-        runner = BPMNXMLWorkflowRunner('exclusive_gateway_two_if_else.bpmn', debugLog='DEBUG', debug=True)
+        runner = BPMNXMLWorkflowRunner('exclusive_gateway_two_if_else.bpmn', debug=True)
         runner.start(lorder=Lorder(2, True))
         res = runner.getEndEventName()
         self.assertEqual(res, 'EndEvent_01jecqa')
 
     def test_exclusive_gateway_complex(self):
-        runner = LXS_BPMNXMLWorkflowRunner('exclusive_gateway_complex.bpmn', debugLog='DEBUG', debug=True)
+        runner = LXS_BPMNXMLWorkflowRunner('exclusive_gateway_complex.bpmn', debug=True)
 
         runner.start(lorder=Lorder('A', 2, True, ['NA', 'BTN'], False))
         res = runner.getEndEventName()

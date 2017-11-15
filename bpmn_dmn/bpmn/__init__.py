@@ -30,16 +30,11 @@ class InMemoryPackager(Packager):
         return s.getvalue()
 
 class BPMNXMLWorkflowRunner:
-    def __init__(self, path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs):
+    def __init__(self, path, workflowProcessID=None, debug=False, **kwargs):
         self.path = path
-        self.debugLog = debugLog or {}
         self.debug = debug
         self.kwargs = kwargs
 
-        self.logger = logging.getLogger('SpiffWorkflow')
-        self.logger.setLevel(getattr(logging, debugLog))
-
-        self.logger.info(f'Loading workflow {self.path}...')
         ETRroot = ElementTree.parse(self.path).getroot() # definitions
         self.workflowProcessID = workflowProcessID or BPMNXMLWorkflowRunner.__getWorkflowProcessID(ETRroot)
         self.workflowEditor = BPMNXMLWorkflowRunner.__getWorkflowEditor(ETRroot)
@@ -72,30 +67,17 @@ class BPMNXMLWorkflowRunner:
     def __getWorkflowEditor(ETRroot):
         return ETRroot.attrib['exporter']
 
-    @staticmethod
-    def showTask(task):
-        print("task type:%s" % task.task_spec.__class__.__name__)
-        print("task name:%s" % task.get_name())
-        print("description:%s" % task.get_description())
-        print("activity :%s" % getattr(task.task_spec, 'service_class', ''))
-        print("state name:%s" % task.get_state_name())
-        print()
-
     def __do_engine_steps(self):
         assert not self.workflow.read_only
         engine_steps = list(
             [t for t in self.workflow.get_tasks(Task.READY) if self.workflow._is_engine_task(t.task_spec)])
         while engine_steps:
             for task in engine_steps:
-                self.showTask(task)
-
                 task.complete()
 
             engine_steps = list([t for t in self.workflow.get_tasks(Task.READY) if self.workflow._is_engine_task(t.task_spec)])
 
     def start(self, **data):
-        self.logger.info(f'Start')
-
         package = self.packager.package_in_memory(self.workflowProcessID, self.path, self.workflowEditor)
         workflowSpec = BpmnSerializer().deserialize_workflow_spec(package)
         self.workflow = BpmnWorkflow(workflowSpec, **self.kwargs)

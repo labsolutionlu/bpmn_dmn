@@ -26,7 +26,7 @@ class ExclusiveGatewayTestClass(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.runner = LXS_BPMNXMLWorkflowRunner('script_engine.bpmn', debugLog='DEBUG', debug=True)
+        cls.runner = LXS_BPMNXMLWorkflowRunner('script_engine.bpmn', debug=True)
 
     def test_script_engine(self):
         self.runner.start(x='y')

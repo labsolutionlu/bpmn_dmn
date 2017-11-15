@@ -26,6 +26,8 @@ class _BusinessRuleTask(Simple, BpmnSpecMixin):
         my_task.workflow.data.update(self.resDict)
 
 class _BusinessRuleTaskParser(TaskParser):
+    dmn_debug=None
+
     def __init__(self, process_parser, spec_class, node):
         super(_BusinessRuleTaskParser, self).__init__(process_parser, spec_class, node)
         self.decisionRef = None
@@ -45,11 +47,12 @@ class _BusinessRuleTaskParser(TaskParser):
             decisionRef += '.dmn'
 
         self.decisionRef = decisionRef
-        task.decisionRunner = DMNDecisionRunner(self.decisionRef)
+        task.decisionRunner = DMNDecisionRunner(self.decisionRef, debug=_BusinessRuleTaskParser.dmn_debug)
 
 class BPMNDMNXMLWorkflowRunner(BPMNXMLWorkflowRunner):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, dmn_debug=None, **kwargs):
         super(BPMNDMNXMLWorkflowRunner, self).__init__(*args, **kwargs)
 
         # Add business rule task support to execute decision tables
+        _BusinessRuleTaskParser.dmn_debug = dmn_debug
         self.addParserSupport('businessRuleTask', _BusinessRuleTaskParser, _BusinessRuleTask)

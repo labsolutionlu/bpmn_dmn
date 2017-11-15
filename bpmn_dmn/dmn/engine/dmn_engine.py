@@ -6,14 +6,14 @@ import datetime
 # / Important for locals (eval)
 
 class DMNEngine:
-    def __init__(self, decisionTable, debug='INFO'):
+    def __init__(self, decisionTable, debug=None):
         self.decisionTable = decisionTable
         self.debug = debug
 
-        self.logger = logging.getLogger('SpiffWorkflow')
+        self.logger = logging.getLogger('DMNEngine')
         if not self.logger.handlers:
             self.logger.addHandler(logging.StreamHandler())
-        self.logger.setLevel(getattr(logging, debug))
+        self.logger.setLevel(getattr(logging, 'DEBUG' if debug else 'INFO'))
 
     def decide(self, *inputArgs, **inputKwargs):
         for rule in self.decisionTable.rules:

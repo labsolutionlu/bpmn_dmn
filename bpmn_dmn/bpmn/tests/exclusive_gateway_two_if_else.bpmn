@@ -7,12 +7,6 @@
     <bpmn:endEvent id="EndEvent_0ofyivj">
       <bpmn:incoming>SequenceFlow_15emspo</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1gdg120" default="SequenceFlow_14jk7cm">
-      <bpmn:incoming>SequenceFlow_0b7whlk</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_15emspo</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_030p6mf</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_14jk7cm</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
     <bpmn:endEvent id="EndEvent_01jecqa">
       <bpmn:incoming>SequenceFlow_12uthgi</bpmn:incoming>
     </bpmn:endEvent>
@@ -39,6 +33,12 @@
       <bpmn:incoming>SequenceFlow_11austw</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_11austw" name="lorder not printed" sourceRef="ExclusiveGateway_1ts2vtz" targetRef="EndEvent_0ie2kdb" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1gdg120" default="SequenceFlow_14jk7cm">
+      <bpmn:incoming>SequenceFlow_0b7whlk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14jk7cm</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_030p6mf</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_15emspo</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
@@ -54,12 +54,6 @@
           <dc:Bounds x="933" y="142" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="ExclusiveGateway_1gdg120_di" bpmnElement="ExclusiveGateway_1gdg120" isMarkerVisible="true">
-        <dc:Bounds x="510" y="279" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="490" y="333" width="90" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_01jecqa_di" bpmnElement="EndEvent_01jecqa">
         <dc:Bounds x="915" y="286" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -70,7 +64,7 @@
         <di:waypoint xsi:type="dc:Point" x="227" y="304" />
         <di:waypoint xsi:type="dc:Point" x="510" y="304" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="323.5" y="283" width="90" height="12" />
+          <dc:Bounds x="324" y="283" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_15emspo_di" bpmnElement="SequenceFlow_15emspo">
@@ -131,6 +125,12 @@
           <dc:Bounds x="702" y="355" width="82" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1gdg120_di" bpmnElement="ExclusiveGateway_1gdg120" isMarkerVisible="true">
+        <dc:Bounds x="510" y="279" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="490" y="333" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

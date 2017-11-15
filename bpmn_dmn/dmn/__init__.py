@@ -2,7 +2,7 @@ from bpmn_dmn.dmn.engine.dmn_parser import DMNParser
 from bpmn_dmn.dmn.engine.dmn_engine import DMNEngine
 
 class DMNDecisionRunner:
-    def __init__(self, path, debug='INFO'):
+    def __init__(self, path, debug=None):
         self.path = path
 
         self.dmnParser = DMNParser(self.path)

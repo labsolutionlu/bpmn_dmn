@@ -8,7 +8,7 @@ class ExclusiveGatewayTestClass(unittest.TestCase):
     """
 
     def test_exclusive_gateway_two_if_else_and_decision(self):
-        runner = BPMNDMNXMLWorkflowRunner('ExclusiveGatewayIfElseAndDecision.bpmn', debugLog='DEBUG', debug=True)
+        runner = BPMNDMNXMLWorkflowRunner('ExclusiveGatewayIfElseAndDecision.bpmn', debug=True, dmn_debug='INFO')
         runner.start(x=3)
 
         res = runner.getEndEventName()
