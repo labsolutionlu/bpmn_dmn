@@ -30,7 +30,7 @@ The bpmn_dmn package contains 3 main modules:
 
 Use the BPMNXMLWorkflowRunner class to execute xml files (based on [SpiffWorkflow](https://github.com/knipknap/SpiffWorkflow))
 
-```Constructor: path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs```
+```Constructor: path, workflowProcessID=None, debug=False, **kwargs```
 
 #### Basic Example:
 
@@ -42,7 +42,7 @@ class Lorder:
         self.status = status
         self.printedfl = printedfl
 
-runner = BPMNXMLWorkflowRunner('exclusive_gateway_two_if_else.bpmn', debugLog='DEBUG', debug=True)
+runner = BPMNXMLWorkflowRunner('exclusive_gateway_two_if_else.bpmn', debug=True)
 runner.start(lorder=Lorder(2, True))
 res = runner.getEndEventName()
 print(res)
