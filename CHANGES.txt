@@ -1,1 +1,2 @@
 v0.1.5, 06.11.2017 -- Initial release
+v0.1.7, 15.11.2017 -- Cleaned up logging
