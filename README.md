@@ -1,10 +1,10 @@
 # BPMN DMN (bpmn_dmn)
 
-A library to execute BPMN Workflows and DMN Decision Tables
+A library to execute BPMN Workflows and DMN Decision Tables.
 
 ## Introduction
 
-This package uses SpiffWorkflow to execute the DBPM workflow. I wrote my own DMN engine to execute DMN Decision Tables.
+This package uses [SpiffWorkflow](https://github.com/knipknap/SpiffWorkflow) to execute the DBPM workflow. I wrote my own DMN engine to execute DMN Decision Tables.
 I used the Camunda Modeleler to create all my files.
 
 The bpmn_dmn package contains 3 main modules:
@@ -28,9 +28,9 @@ The bpmn_dmn package contains 3 main modules:
 
 ### Execute bpmn Workflow Charts (See bpmn/tests):
 
-Use the BPMNXMLWorkflowRunner class to execute xml files
+Use the BPMNXMLWorkflowRunner class to execute xml files (based on [SpiffWorkflow](https://github.com/knipknap/SpiffWorkflow))
 
-```path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs```
+```Constructor: path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs```
 
 #### Basic Example:
 
@@ -48,11 +48,18 @@ res = runner.getEndEventName()
 print(res)
 ```
 
+#### I want more:
+
+In my unit tests I currently only used Exclusive Gateways. But there is MUCH more.
+Please see the [SpiffWorkflow BPMN UnitTests](https://github.com/knipknap/SpiffWorkflow/tree/master/tests/SpiffWorkflow/bpmn).
+
+All of them should work in my library too, since I simply wrote a base Class that wraps the xml packager and some more small features.
+
 ### Execute bpmn Workflow Charts that includes DMN Decision Tables (See bpmn_dmn/tests):
 
 Use the BPMNDMNXMLWorkflowRunner class to execute xml files
 
-```path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs```
+```Constructor: path, workflowProcessID=None, debugLog='INFO', debug=False, **kwargs```
 
 #### Basic Example:
 
@@ -107,7 +114,7 @@ print(res)
 
 Use the DMNDecisionRunner class to execute xml files
 
-```path, debug='INFO'```
+```Constructor: path, debug='INFO'```
 
 #### Basic Example:
 
