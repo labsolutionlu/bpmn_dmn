@@ -13,8 +13,8 @@ class CamundaExclusiveGatewayParser(ExclusiveGatewayParser):
             condition_expression_node = conditionExpression = first(
                 xpath('.//bpmn:conditionExpression'))
 
-            #if conditionExpression is not None:
-            #    conditionExpression = conditionExpression.text
+            if not condition_expression_node:
+                raise
 
             for attrib in condition_expression_node.attrib:
                 if attrib.endswith('resource') and condition_expression_node.attrib[attrib]:
