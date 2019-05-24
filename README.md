@@ -149,3 +149,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Log improvements
 * Test other unit tests from SpiffWorkflow [Source](https://github.com/knipknap/SpiffWorkflow/tree/master/tests/SpiffWorkflow/bpmn)
+* Implement all differnt modes that are available for DMN tables
